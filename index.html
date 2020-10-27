@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <script>
+            function DImport(path) 
+            {
+                return new Promise((res,rej) =>
+                {
+                    const moduleSpecifier = path;
+                    try {
+                        const module = import(moduleSpecifier);
+                        res(module);
+                    } catch (error) {
+                        console.log(path + " doesnt exist");
+                        rej(null);
+                    }
+                });
+            }
+            DImport('hello/js').then(console.log);
+            </script>
+    </body>
+</html>
